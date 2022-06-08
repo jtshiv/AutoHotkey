@@ -6,4 +6,9 @@ capslock::
 Send {Esc}
 ; should send esc after pressing capslock
 return
+#IfWinActive ahk_exe mintty.exe
+capslock::
+Send {Esc}
+; should send esc after pressing capslock
+return
 #IfWinActive
