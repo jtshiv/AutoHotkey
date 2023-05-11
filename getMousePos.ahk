@@ -1,4 +1,5 @@
 #SingleInstance force
+#IfWinActive ahk_exe RuneLite.exe
 
 gui_options := "-MinimizeBox -MaximizeBox"
 Gui %gui_options%
