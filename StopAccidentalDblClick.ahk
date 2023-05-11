@@ -5,7 +5,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 LButton::	
-	If (A_TimeSincePriorHotkey < 20) ;hyperclick
+	If (A_TimeSincePriorHotkey < 80) ;hyperclick
 		Return
 	Click Down
 	KeyWait, LButton
