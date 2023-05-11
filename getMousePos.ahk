@@ -1,11 +1,19 @@
 #SingleInstance force
 
+gui_options := "-MinimizeBox -MaximizeBox"
+Gui %gui_options%
+Gui, Add, Text,vEnabledScr, None
+Gui, Add, Button, gGetMousePos , Get relative mouse position.`nNum1 start, Num2 end
+Gui, show,,Runescape Scripts
 
-Numpad1:: MouseGetPos, x1, y1
-Numpad2:: 
-    MouseGetPos, x2, y2
-    x := x2-x1
-    y := y2-y1
-    msgbox x diff: %x%, y diff: %y%
+return ; end of auto execute section
+
+GetMousePos:
+    GuiControlGet, EnabledScr
+    msgbox %EnabledScr%
 return
-Numpad3:: MouseMove x, y, 1, R
+
+
+GuiClose:
+ExitApp
+
