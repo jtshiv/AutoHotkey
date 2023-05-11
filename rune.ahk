@@ -1,11 +1,13 @@
 #SingleInstance force
-#IfWinActive ahk_exe RuneLite.exe
+#NoEnv
+SetWorkingDir %A_ScriptDir%
+SendMode Input
 
 gui_options := "-MinimizeBox -MaximizeBox"
 Gui %gui_options%
 Gui, Add, Text, w250 vEnabledScr, None
 Gui, Add, Button, gGetMousePos , Get relative mouse position.`nNum1 start, Num2 end
-Gui, show,,Runescape Scripts
+Gui, show,,Scripts
 
 return ; end of auto execute section
 
@@ -47,11 +49,17 @@ GetMousePos(disable:=0)
         msgbox x diff: %x%, y diff: %y%
     return
     mouseRel:
+        BlockInput, On
         MouseMove x, y, 1, R
+        BlockInput, Off
     return
 
 }
 
+randomCoord(min, max) {
+    Random, randomValue, % min, % max ; Use AHK's built in Random function
+    Return randomValue
+}
 
 GuiClose:
 ExitApp
